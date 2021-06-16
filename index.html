@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" id="vp" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width" />
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="https://api.mazemap.com/js/v2.0.12/mazemap.min.css">
+    <script type='text/javascript' src='https://api.mazemap.com/js/v2.0.12/mazemap.min.js'></script>
+
+    <style>
+        body { margin:0px; padding:0px; width: 100vw; height:100vh; }
+    </style>
+</head>
+<body>
+<div id="map" class="mazemap"></div>
+
+<script>
+
+    var myMap = new Mazemap.Map({
+        container: 'map',
+        campuses: 103,
+        center: {lng: 174.76811443753783, lat: -36.854087080025515},
+        zoom: 17,
+        scrollZoom: true,
+        doubleClickZoom: true,
+        touchZoomRotate: true,
+        zLevelControl: true
+    });
+
+    myMap.on('load', function(){
+        // MazeMap ready
+
+        var lngLat = myMap.getCenter();
+
+        var marker = new Mazemap.MazeMarker( {
+            color: "MazeBlue",
+            size: 36,
+            zLevel: 1
+        } ).setLngLat( lngLat ).addTo(myMap);
+
+    });
+
+</script>
+</body>
